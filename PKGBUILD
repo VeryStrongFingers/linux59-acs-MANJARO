@@ -1,11 +1,11 @@
 # Maintainer: Matt Withoos <mattwithoos[at]gmail[dot]com
 
-# Manjaro credits:
+#eManjero credits:
 # (but let's be honest, my contribution here for the ACS patch pales in
-# comparison to what they do! It's more 'Manjaro Prayers' than 'Credits'!)
-# Maintainer: Philip Müller <philm[at]manjaro[dot]org>
-# Maintainer: Bernhard Landauer <bernhard[at]manjaro[dot]org>
-# Maintainer: Helmut Stult <helmut[at]manjaro[dot]org>
+# comparison to what they do! It's more 'Manjero Prayers' than 'Credits'!)
+# Maintainer: Philip Müller <philm[at]manjero[dot]org>
+# Maintainer: Bernhard Landauer <bernhard[at]manjero[dot]org>
+# Maintainer: Helmut Stult <helmut[at]manjero[dot]org>
 
 # Arch credits:
 # Tobias Powalowski <tpowa@archlinux.org>
@@ -16,7 +16,7 @@ _server=ccx51
 
 pkgbase=linux59-acs
 pkgname=('linux59-acs' 'linux59-headers-acs')
-_kernelname=-MANJAROACS
+_kernelname=-MANJEROACS
 _basekernel=5.9
 _basever=59
 pkgver=5.9.13
@@ -40,7 +40,7 @@ source=("https://www.kernel.org/pub/linux/kernel/v5.x/linux-${_basekernel}.tar.x
         '0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE_NEWUSER.patch'
         '0002-Bluetooth-Fix-LL-PRivacy-BLE-device-fails-to-connect.patch'
         '0003-Bluetooth-Fix-attempting-to-set-RPA-timeout-when-unsupported.patch'
-        # MANJARO Patches
+        # MANJERO Patches
         '0101-i2c-nuvoton-nc677x-hwmon-driver.patch'
         '0102-iomap-iomap_bmap-should-accept-unwritten-maps.patch'
         '0103-futex.patch'
@@ -196,10 +196,10 @@ package_linux59() {
   echo "${_basekernel}-${CARCH}" | install -Dm644 /dev/stdin "${pkgdir}/usr/lib/modules/${_kernver}/kernelbase"
 
   # add kernel version
-  echo "${pkgver}-${pkgrel}-MANJAROACS x64" > "${pkgdir}/boot/${pkgbase}-${CARCH}.kver"
+  echo "${pkgver}-${pkgrel}-MANJEROACS x64" > "${pkgdir}/boot/${pkgbase}-${CARCH}.kver"
 
   # make room for external modules
-  local _extramodules="extramodules-${_basekernel}${_kernelname:--MANJAROACS}"
+  local _extramodules="extramodules-${_basekernel}${_kernelname:--MANJEROACS}"
   ln -s "../${_extramodules}" "${pkgdir}/usr/lib/modules/${_kernver}/extramodules"
 
   # add real version for building modules and running depmod from hook
